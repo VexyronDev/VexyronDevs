@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vexyron</title>
+<meta name="description" content="Vexyron – die KI von VexyronDevs. Chatte schriftlich oder per Sprache, mit eigenem Konto.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="./"><img src="icon.png" alt=""><span>Vexyron</span></a>
+  <nav>
+    <a href="#so">So geht's</a>
+    <a href="#daten">Deine Daten</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <img class="hero-ico" src="icon.png" alt="">
+    <h1>Vexyron</h1>
+    <p class="lead">Die KI von VexyronDevs. Schreib mit ihr oder sprich live mit ihr.<br>Jeder hat sein eigenes Konto.</p>
+
+    <div class="status" id="status" data-state="check"><i></i><span id="status-text">Prüfe den Server …</span></div>
+
+    <div class="cta">
+      <a class="btn primary" id="open" href="#" aria-disabled="true">Vexyron öffnen</a>
+      <a class="btn" id="apk" href="#" aria-disabled="true">Android-App laden</a>
+    </div>
+    <p class="hint" id="hint"></p>
+  </section>
+
+  <section id="so" class="block">
+    <h2>So kommst du rein</h2>
+    <ol class="steps">
+      <li><b>Öffnen</b><span>Tippe auf „Vexyron öffnen“. Du kommst auf die Anmeldeseite.</span></li>
+      <li><b>Konto anlegen</b><span>Wähle „Registrieren“, denk dir einen Namen und ein Passwort mit mindestens 8 Zeichen aus und gib den Einladungscode ein, den du bekommen hast.</span></li>
+      <li><b>Loslegen</b><span>Schreib los. Beim nächsten Mal meldest du dich nur noch an.</span></li>
+    </ol>
+    <div class="note" id="app-note">
+      <b>Auf dem Handy:</b> Lade die Android-App oben, öffne sie und gib beim ersten Start die Server-Adresse ein. Du findest sie hier:
+      <div class="addr"><code id="addr">–</code><button class="btn small" id="copy" type="button">Kopieren</button></div>
+    </div>
+  </section>
+
+  <section id="daten" class="block">
+    <h2>Deine Daten</h2>
+    <div class="cards">
+      <div class="card"><b>Eigenes Konto</b><span>Jeder Nutzer hat ein eigenes Konto. Niemand sieht die Chats oder Einstellungen eines anderen.</span></div>
+      <div class="card"><b>Chats bleiben bei dir</b><span>Deine Chats liegen nur auf deinem Gerät, nicht auf dem Server. Der Server kennt deinen Namen, einen Passwort-Hash und einen Tageszähler.</span></div>
+      <div class="card"><b>Sichern möglich</b><span>In den Einstellungen unter „Konto“ kannst du deine Chats als Datei sichern und auf einem neuen Gerät wieder laden.</span></div>
+      <div class="card"><b>Fairer Zugang</b><span>Der Server läuft auf einem privaten Rechner. Es gibt eine Warteschlange und ein Tageslimit, damit alle drankommen. Manchmal ist er nicht erreichbar.</span></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>© VexyronDevs</span>
+  <span><a href="datenschutz.html">Datenschutz</a> · <a href="impressum.html">Impressum</a></span>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>
