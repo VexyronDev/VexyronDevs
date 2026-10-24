@@ -87,3 +87,16 @@ footer a:hover { color: var(--white); }
   .top nav { gap: 16px; }
 }
 @media (prefers-reduced-motion: reduce) { .hero-ico { animation: none; } html { scroll-behavior: auto; } }
+
+/* download window */
+.dl { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 20px; background: rgba(0, 0, 0, .86); backdrop-filter: blur(6px); }
+.dl[hidden] { display: none; }
+.dl-card { width: 100%; max-width: 400px; padding: 30px 26px 24px; border: 1px solid var(--line2); border-radius: 18px; background: var(--panel); text-align: center; }
+.dl-card img { width: 64px; height: 64px; object-fit: contain; display: block; margin: 0 auto 14px; }
+.dl-card h2 { margin: 0 0 18px; font-size: 19px; font-weight: 600; }
+.dl-bar { height: 8px; border-radius: 4px; background: #1a1a1a; overflow: hidden; }
+.dl-bar i { display: block; height: 100%; width: 0; border-radius: 4px; background: var(--white); transition: width .2s linear; }
+.dl-bar.wait i { width: 35%; animation: dlslide 1.2s ease-in-out infinite alternate; }
+@keyframes dlslide { from { margin-left: 0; } to { margin-left: 65%; } }
+.dl-n { margin: 12px 0 0; color: var(--dim); font-size: 14px; font-variant-numeric: tabular-nums; }
+.dl-h { min-height: 22px; margin: 10px 0 14px; color: var(--mute); font-size: 13.5px; line-height: 1.5; }
