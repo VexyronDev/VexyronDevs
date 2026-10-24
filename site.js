@@ -2,7 +2,7 @@
 // The PC that runs the server writes the address there every time it starts: see README.md.
 (() => {
   const $ = id => document.getElementById(id);
-  const status = $('status'), text = $('status-text'), open = $('open'), apk = $('apk'), hint = $('hint'), addr = $('addr'), copy = $('copy');
+  const status = $('status'), text = $('status-text'), open = $('open'), apk = $('apk'), win = $('win'), hint = $('hint'), addr = $('addr'), copy = $('copy');
 
   const set = (state, msg) => { status.dataset.state = state; text.textContent = msg; };
   const enable = (a, href) => { a.href = href; a.removeAttribute('aria-disabled'); };
@@ -29,6 +29,7 @@
       set('on', 'Der Server ist online');
       enable(open, url + '/');
       enable(apk, url + '/Vexyron.apk');
+      enable(win, url + '/Vexyron-Windows.zip');
       hint.textContent = '';
     } else {
       set('off', 'Der Server ist gerade offline');
