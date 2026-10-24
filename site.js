@@ -29,7 +29,7 @@
       set('on', 'Der Server ist online');
       enable(open, url + '/');
       enable(apk, url + '/Vexyron.apk');
-      enable(win, url + '/Vexyron-Windows.zip');
+      enable(win, url + '/Vexyron-Windows.exe');
       hint.textContent = '';
     } else {
       set('off', 'Der Server ist gerade offline');
