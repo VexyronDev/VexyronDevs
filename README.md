@@ -32,5 +32,5 @@ Wenn dir das Hochladen zu lästig ist: In `%APPDATA%\luauforge\server\config.jso
 
 - Der PC muss **an** sein und Internet haben. Der Server hält ihn wach (kein Standby), aber nicht, wenn du ihn herunterfährst.
 - Die KI und der Server brauchen Grafikspeicher. Am besten läuft währenddessen nichts anderes mit Vexyron auf der Grafikkarte.
-- Trage in `datenschutz.html` und `impressum.html` die gelb markierten Stellen mit deinen Daten ein, bevor du die Seite weitergibst, und lass sie prüfen.
+- Trage in `datenschutz.html` die gelb markierten Stellen mit deinen Daten ein, bevor du die Seite weitergibst, und lass sie prüfen.
 - Lege **nie** Passwörter, API-Schlüssel (zum Beispiel `fish.json`) oder den Ordner `%APPDATA%\luauforge` in dieses Repository.
