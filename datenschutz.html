@@ -28,6 +28,8 @@
       <li><b>Community-Galerie:</b> Nur wenn du ein Bild selbst mit „In Community teilen“ veröffentlichst, wird es mit deinem Namen auf dem Server gespeichert. Der Betreiber gibt es erst frei; danach können es andere Nutzer sehen und speichern. Du kannst es jederzeit wieder entfernen, es wird auch beim Löschen deines Kontos entfernt.</li>
       <li><b>Nachrichten:</b> Wenn du etwas schreibst, läuft der Text zur Verarbeitung durch den Server zur KI und zurück. Er wird dabei nicht gespeichert und nicht protokolliert.</li>
       <li><b>Internetsuche:</b> Wenn Vexyron etwas nachschlägt, wird nur der Suchtext an Suchmaschinen (DuckDuckGo, Bing) geschickt, nicht dein Chat und nicht dein Name.</li>
+      <li><b>Standort (Desktop-App):</b> Fragst du im Live-Gespräch nach dem Wetter oder nach Orten in der Nähe, nutzt die App den Standort deines eigenen Rechners (Windows-Ortung, sonst eine grobe Schätzung über die IP-Adresse). Er wird nicht gespeichert und nicht an den Server von Vexyron geschickt. Der Standort anderer Nutzer und der des Betreibers bleiben getrennt. Fragst du nach einer anderen Stadt, geht nur deren Name hinaus.</li>
+      <li><b>Bildschirm teilen (Desktop-App):</b> Nur solange du es im Live-Gespräch einschaltest, macht die App alle paar Sekunden ein kleines Bild deines Bildschirms und gibt es an die KI auf deinem eigenen Rechner. Die Bilder werden nicht gespeichert. Die schwebende Pille ist im Bild für Vexyron übermalt.</li>
       <li><b>IP-Adresse:</b> Sie wird kurz im Arbeitsspeicher gehalten, um zu viele Anmeldeversuche zu bremsen, und nicht dauerhaft gespeichert.</li>
     </ul>
   </section>
@@ -36,6 +38,7 @@
     <h2 class="comp-h">Wer bekommt Daten?</h2>
     <ul class="dp-list">
       <li><b>Cloudflare</b> leitet die Verbindung zwischen deinem Gerät und dem Server weiter (Tunnel). Dabei verarbeitet Cloudflare technisch bedingt Verbindungsdaten.</li>
+      <li><b>Open-Meteo und OpenStreetMap</b> (Overpass, Nominatim und Kartenbilder) bekommen bei Wetter- und Ortsfragen den Ortsnamen bzw. die ungefähren Koordinaten des gesuchten Orts. Wenn Windows keinen Standort liefert, fragt die App über ipwho.is nach einer groben Schätzung, dabei sieht der Dienst deine IP-Adresse.</li>
       <li><b>GitHub Pages</b> liefert diese Webseite aus. GitHub kann dabei die IP-Adresse der Besucher verarbeiten.</li>
     </ul>
   </section>
