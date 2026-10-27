@@ -4,57 +4,356 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vexyron</title>
-<meta name="description" content="Vexyron – die KI von VexyronDevs. Chatte schriftlich oder per Sprache, mit eigenem Konto.">
-<meta name="theme-color" content="#000000">
+<meta name="description" content="Vexyron, die KI von VexyronDevs. Schreib mit ihr oder sprich live mit ihr. Jeder hat sein eigenes Konto.">
+<meta name="theme-color" content="#080808">
 <link rel="icon" href="favicon.png">
-<link rel="stylesheet" href="style.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vexyron">
+<meta property="og:description" content="Die KI von VexyronDevs. Schreib mit ihr, sprich live mit ihr, lass sie Bilder malen.">
+<meta property="og:image" content="https://vexyrondev.github.io/VexyronDevs/Screenshot_20261027_005911_Gallery.webp">
+<style>
+:root {
+  --bg:#0a0a0a;--panel:#121212;--line:#222;--line2:#2a2a2a;
+  --text:#efefef;--dim:#949494;--mute:#777;--white:#fff;
+  --accent:#fff;--accent-hover:#e6e6e6;--edge:24px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font:17px/1.5 -apple-system,"SF Pro Text","SF Pro Display","Helvetica Neue","Segoe UI Variable Text","Segoe UI",system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;letter-spacing:-.01em;
+  padding-left:max(0px,env(safe-area-inset-left,0px));
+  padding-right:max(0px,env(safe-area-inset-right,0px));
+}
+a{color:inherit;text-decoration:none}
+
+#vbg{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 80% 60% at 50% 10%,rgba(255,255,255,.04) 0%,transparent 70%),
+    radial-gradient(ellipse 60% 40% at 20% 80%,rgba(255,255,255,.02) 0%,transparent 60%),#080808;
+}
+#vbg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 50% 50% at 50% 50%,transparent 50%,rgba(0,0,0,.55) 100%)}
+
+.top{
+  position:sticky;top:8px;z-index:40;
+  display:flex;align-items:center;justify-content:space-between;
+  max-width:980px;margin:8px auto 0;padding:6px;
+  border:1px solid rgba(255,255,255,.12);border-radius:999px;
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  box-shadow:0 6px 24px rgba(0,0,0,.4);
+}
+.brand{display:inline-flex;align-items:center;padding:0;transition:transform .1s,opacity .15s}
+.brand:hover{transform:translateY(-1px);opacity:.85}
+.brand img{width:40px;height:40px;object-fit:contain;filter:drop-shadow(0 0 8px rgba(255,255,255,.15))}
+.top nav{display:flex;gap:6px}
+.top nav a{
+  display:inline-flex;align-items:center;height:40px;padding:0 16px;
+  border:1px solid rgba(255,255,255,.14);border-radius:999px;
+  background:rgba(255,255,255,.05);color:var(--text);
+  font-size:14px;font-weight:500;
+  transition:background .15s,border-color .15s,transform .1s;
+}
+.top nav a:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28);transform:translateY(-1px)}
+
+main{max-width:980px;margin:0 auto;padding:0 var(--edge);position:relative;z-index:2}
+
+.hero{text-align:center;padding:80px 0 96px}
+.hero-ico{
+  width:160px;height:160px;object-fit:contain;display:block;margin:0 auto 32px;
+  filter:drop-shadow(0 20px 50px rgba(255,255,255,.10));
+  animation:float 6s ease-in-out infinite;
+}
+@keyframes float{50%{transform:translateY(-8px)}}
+.hero h1{margin:0;font-size:clamp(56px,11vw,92px);line-height:.98;letter-spacing:-.035em;font-weight:700}
+.lead{margin:24px auto 0;max-width:620px;color:var(--dim);font-size:22px;line-height:1.4;letter-spacing:-.01em}
+
+.cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:32px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:50px;padding:0 26px;
+  border:1px solid rgba(255,255,255,.14);border-radius:999px;
+  background:rgba(255,255,255,.06);color:var(--text);
+  font:inherit;font-size:16px;font-weight:500;letter-spacing:-.01em;
+  cursor:pointer;transition:transform .15s,background .2s,border-color .2s,box-shadow .2s;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+}
+.btn:hover{transform:translateY(-2px);background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28)}
+.btn.primary{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600;box-shadow:0 8px 24px rgba(255,255,255,.12)}
+.btn.primary:hover{background:var(--accent-hover);border-color:var(--accent-hover);box-shadow:0 12px 32px rgba(255,255,255,.18)}
+
+.block{padding:64px 0;border-top:1px solid rgba(255,255,255,.06)}
+.block h2{margin:0 0 32px;font-size:34px;font-weight:700;letter-spacing:-.02em}
+
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:s}
+.steps li{
+  display:grid;gap:6px;padding:24px 26px 24px 74px;position:relative;
+  border:1px solid rgba(255,255,255,.08);border-radius:20px;
+  background:rgba(255,255,255,.03);counter-increment:s;
+  transition:transform .2s,border-color .2s,box-shadow .2s,background .2s;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+}
+.steps li:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.06);box-shadow:0 16px 40px rgba(0,0,0,.4)}
+.steps li::before{
+  content:counter(s);position:absolute;left:24px;top:24px;
+  width:32px;height:32px;display:grid;place-items:center;
+  border-radius:50%;background:var(--accent);color:#000;
+  font-weight:600;font-size:15px;
+}
+.steps b{font-size:18px;color:var(--text);font-weight:600;letter-spacing:-.01em}
+.steps span{color:var(--dim);font-size:16px;line-height:1.5}
+
+.note{
+  margin-top:28px;padding:28px 30px;
+  border:1px solid rgba(255,255,255,.08);border-radius:22px;
+  color:var(--dim);background:rgba(255,255,255,.03);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  font-size:16px;line-height:1.6;
+}
+.note b{color:var(--text);font-weight:600}
+
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.card{
+  display:grid;gap:8px;align-content:start;padding:28px;
+  border:1px solid rgba(255,255,255,.08);border-radius:22px;
+  background:rgba(255,255,255,.03);
+  transition:transform .2s,border-color .2s,box-shadow .2s,background .2s;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+}
+.card:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.06);box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.card b{font-size:18px;color:var(--text);font-weight:600;letter-spacing:-.01em}
+.card span{color:var(--dim);font-size:16px;line-height:1.55}
+
+footer{
+  position:relative;z-index:2;
+  display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;
+  max-width:980px;margin:0 auto;padding:40px var(--edge) 56px;
+  border-top:1px solid rgba(255,255,255,.06);
+  color:var(--mute);font-size:14px;
+}
+footer a{color:var(--dim);transition:color .15s}
+footer a:hover{color:var(--text)}
+
+/* ── gallery ── */
+.gallery-outer{ display:flex; flex-direction:column; gap:16px; }
+
+.gallery-wrap{
+  position:relative;border-radius:18px;overflow:hidden;
+  box-shadow:0 32px 80px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.1);
+}
+.gallery-track{
+  display:flex;
+  transition:transform .55s cubic-bezier(.4,0,.2,1);
+  will-change:transform;
+}
+.gallery-slide{
+  flex:0 0 100%;min-width:0;
+}
+.gallery-slide img{
+  width:100%;height:auto;display:block;
+}
+
+/* controls row below gallery */
+.gallery-controls{
+  display:flex;align-items:center;justify-content:center;gap:16px;
+}
+.gallery-btn{
+  width:40px;height:40px;border-radius:50%;flex-shrink:0;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.07);
+  color:#fff;font-size:22px;line-height:1;
+  cursor:pointer;
+  transition:background .2s,transform .15s,border-color .2s;
+  display:grid;place-items:center;padding:0;
+}
+.gallery-btn:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.35);transform:scale(1.08)}
+.gallery-btn:active{transform:scale(.96)}
+
+.gallery-dots{display:flex;align-items:center;gap:6px}
+.gallery-dot{
+  width:6px;height:6px;border-radius:3px;
+  background:rgba(255,255,255,.25);cursor:pointer;
+  transition:background .25s,width .25s;
+  border:none;padding:0;flex-shrink:0;
+}
+.gallery-dot.active{width:22px;background:#fff}
+
+@media(max-width:680px){
+  :root{--edge:16px}
+  .hero{padding:40px 0 56px}
+  .hero-ico{width:116px;height:116px}
+  .cards{grid-template-columns:1fr}
+  .cta .btn{width:100%}
+  .top nav{gap:16px}
+  .gallery-wrap{border-radius:16px}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-ico{animation:none}
+  html{scroll-behavior:auto}
+  .gallery-track{transition:none}
+}
+.btn[aria-disabled="true"]{opacity:.45;pointer-events:none}
+
+.cta{scroll-margin-top:110px}
+#so,#einblicke,#kann{scroll-margin-top:22px}
+/* ── dein Stil: Text nicht markierbar, keine sichtbaren Scrollbalken ── */
+html{scrollbar-width:none}
+html::-webkit-scrollbar,body::-webkit-scrollbar{display:none}
+body{-webkit-user-select:none;user-select:none}
+::selection{background:rgba(255,255,255,.3)}
+.hero{padding:40px 0 72px}
+@media(max-width:680px){
+  .hero{padding:32px 0 56px}
+  .lead{font-size:16px;line-height:1.5;max-width:290px;margin-top:16px;text-wrap:balance}
+  .lead br{display:none}
+  .block h2{text-align:center;margin-bottom:24px}
+  .card{text-align:center;justify-items:center;padding:24px 22px}
+  footer{flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:8px}
+}
+
+/* Funktions-Pillen */
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:26px auto 0;max-width:640px}
+.chips span{
+  display:inline-flex;align-items:center;height:36px;padding:0 15px;
+  border:1px solid rgba(255,255,255,.14);border-radius:999px;
+  background:rgba(255,255,255,.05);color:var(--text);font-size:14px;font-weight:500;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+}
+
+/* Server-Status + Windows-Hinweis */
+.state{display:inline-flex;align-items:center;justify-content:center;gap:9px;margin:22px 0 0;color:var(--dim);font-size:14px}
+.state i{width:8px;height:8px;border-radius:50%;background:#555;flex:none}
+.state[data-state="on"] i{background:#fff;box-shadow:0 0 12px rgba(255,255,255,.8)}
+.state[data-state="on"]{color:var(--text)}
+.state[data-state="off"] i{background:#7a7a7a}
+#hint{display:block;margin:6px 0 0}
+.winhint{margin:14px auto 0;max-width:520px;color:var(--mute);font-size:13.5px;line-height:1.45}
+
+/* Bildunterschrift der Galerie */
+.gallery-cap{margin:2px 0 0;text-align:center;color:var(--dim);font-size:15.5px;min-height:1.5em;transition:opacity .25s}
+
+/* sanftes Einblenden, nur wenn JS laeuft */
+html.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+html.js .reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html.js .reveal{opacity:1;transform:none;transition:none}}
+
+/* Dropdown: So kommst du rein */
+.drop{border:1px solid rgba(255,255,255,.08);border-radius:22px;background:rgba(255,255,255,.03);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:border-color .2s,background .2s}
+.drop:hover,.drop.is-open{border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.05)}
+.drop summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 28px;-webkit-tap-highlight-color:transparent}
+.drop summary::-webkit-details-marker{display:none}
+.drop summary h2{margin:0;font-size:28px}
+.chev{width:40px;height:40px;flex:none;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07);position:relative;transition:transform .4s cubic-bezier(.4,0,.2,1),background .2s}
+.chev::before{content:"";position:absolute;left:50%;top:50%;width:9px;height:9px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:translate(-50%,-70%) rotate(45deg)}
+.drop summary:hover .chev{background:rgba(255,255,255,.15)}
+.drop.is-open .chev{transform:rotate(180deg)}
+.drop-body{box-sizing:border-box;padding:4px 22px 24px}
+@media(max-width:680px){.drop summary{padding:18px 20px}.drop summary h2{font-size:23px}.drop-body{padding:2px 14px 18px}}
+@media(prefers-reduced-motion:reduce){.chev{transition:none}}
+
+/* Icons nur auf dem Handy, am PC steht der Text */
+.top nav a .ic{display:none;width:19px;height:19px}
+
+/* Handy: schlanke Leiste mit Abstand zum Rand */
+@media(max-width:680px){
+  .top{top:16px;margin:16px var(--edge) 0;padding:4px 4px 4px 8px}
+  .brand img{width:34px;height:34px}
+  .top nav{gap:6px}
+  .top nav a{width:36px;height:36px;padding:0;justify-content:center;border-color:rgba(255,255,255,.12);background:rgba(255,255,255,.06)}
+  .top nav a .lbl{display:none}
+  .top nav a .ic{display:block}
+}
+
+/* Streifen ueber der Leiste: Inhalt, der beim Scrollen darunter laeuft, wird abgeblendet */
+body::after{content:"";position:fixed;top:0;left:0;right:0;height:40px;z-index:39;pointer-events:none;background:linear-gradient(to bottom,#000 0,#000 40%,rgba(0,0,0,0) 100%)}
+@media(max-width:680px){body::after{height:44px}}
+
+/* Einheitliche Schriftgroessen auf allen Seiten: Titel + Untertitel */
+@media(min-width:681px){
+  .hero h1{font-size:48px;line-height:1.1;letter-spacing:-.03em;margin:0}
+  .lead{font-size:18px;line-height:1.45;margin:12px auto 0}
+}
+@media(max-width:680px){
+  .hero h1{font-size:34px;line-height:1.1;letter-spacing:-.03em;margin:0}
+  .lead{font-size:16px;line-height:1.45;margin:10px auto 0}
+}
+</style>
 </head>
 <body>
+<script>document.documentElement.classList.add('js')</script>
+
+
+
 <header class="top">
-  <a class="brand" href="./"><img src="icon.png" alt=""><span>Vexyron</span></a>
+  <a class="brand" href="./"><img src="icon.png" alt="Vexyron"></a>
   <nav>
-    <a href="#so">So geht's</a>
-    <a href="#daten">Deine Daten</a>
+    <a href="#so" aria-label="So geht's"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-5"/><path d="M12 8h.01"/></svg><span class="lbl">So geht's</span></a>
+    <a href="#kann" aria-label="Funktionen"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 3l1.9 5.1L18 10l-5.1 1.9L11 17l-1.9-5.1L4 10l5.1-1.9z"/><path d="M19 15l.8 2.2 2.2.8-2.2.8L19 21l-.8-2.2-2.2-.8 2.2-.8z"/></svg><span class="lbl">Funktionen</span></a>
+    <a href="status.html" aria-label="Status"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1.8"/><path d="M16.2 7.8a6 6 0 0 1 0 8.4"/><path d="M7.8 16.2a6 6 0 0 1 0-8.4"/><path d="M19.1 4.9a10 10 0 0 1 0 14.2"/><path d="M4.9 19.1a10 10 0 0 1 0-14.2"/></svg><span class="lbl">Status</span></a>
   </nav>
 </header>
 
 <main>
   <section class="hero">
-    <img class="hero-ico" src="icon.png" alt="">
     <h1>Vexyron</h1>
-    <p class="lead">Die KI von VexyronDevs. Schreib mit ihr oder sprich live mit ihr.<br>Jeder hat sein eigenes Konto.</p>
-
-    <div class="status" id="status" data-state="check"><i></i><span id="status-text">Prüfe den Server …</span></div>
-
-    <div class="cta">
+    <p class="lead">Die KI von VexyronDevs. Schreib mit ihr oder sprich live mit ihr. <br>Jeder hat sein eigenes Konto.</p>
+    <div class="chips"><span>Chat</span><span>Live sprechen</span><span>Bilder malen</span><span>Web-Suche</span><span>Community</span></div>
+    <div class="cta" id="download">
       <a class="btn primary" id="open" href="#" aria-disabled="true">Vexyron öffnen</a>
       <a class="btn" id="win" href="#" aria-disabled="true">Windows-App laden</a>
       <a class="btn" id="apk" href="#" aria-disabled="true">Android-App laden</a>
     </div>
-    <p class="hint" id="hint"></p>
+    <p class="winhint">Windows warnt beim ersten Start. Klicke auf „Weitere Informationen“ und dann auf „Trotzdem ausführen“.</p>
   </section>
 
-  <section id="so" class="block">
-    <h2>So kommst du rein</h2>
-    <ol class="steps">
-      <li><b>Öffnen</b><span>Tippe auf „Vexyron öffnen“. Du kommst auf die Anmeldeseite.</span></li>
-      <li><b>Konto anlegen</b><span>Wähle „Registrieren“, denk dir einen Namen und ein Passwort mit mindestens 8 Zeichen aus und gib den Einladungscode ein, den du bekommen hast.</span></li>
-      <li><b>Loslegen</b><span>Schreib los. Beim nächsten Mal meldest du dich nur noch an.</span></li>
-    </ol>
-    <div class="note" id="app-note">
-      <b>Handy und PC:</b> Lade die Android-App oben und öffne sie. Am PC: Lade die Windows-App, öffne die Datei und folge dem Installationsfenster (Windows warnt beim ersten Mal: „Weitere Informationen“ → „Trotzdem ausführen“). Falls nach einer Adresse gefragt wird, findest du sie hier:
-      <div class="addr"><code id="addr">–</code><button class="btn small" id="copy" type="button">Kopieren</button></div>
+  <section id="so" class="block reveal">
+    <details class="drop" id="so-drop">
+      <summary><h2>So kommst du rein</h2><span class="chev" aria-hidden="true"></span></summary>
+      <div class="drop-body">
+      <ol class="steps">
+        <li><b>Öffnen</b><span>Tippe auf „Vexyron öffnen". Du kommst auf die Anmeldeseite.</span></li>
+        <li><b>Konto anlegen</b><span>Wähle „Registrieren", denk dir einen Namen und ein Passwort mit mindestens 8 Zeichen aus und gib den Einladungscode ein, den du bekommen hast.</span></li>
+        <li><b>Loslegen</b><span>Schreib los. Beim nächsten Mal meldest du dich nur noch an.</span></li>
+      </ol>
+      <div class="note">
+        <b>Handy und PC:</b> Lade die Android-App oben und öffne sie. Am PC: Lade die Windows-App, öffne die Datei und folge dem Installationsfenster.
+      </div>
+      </div>
+    </details>
+  </section>
+
+  <section id="einblicke" class="block reveal">
+    <h2>Einblicke</h2>
+    <div class="gallery-outer" id="gallery-outer">
+      <div class="gallery-wrap" id="gallery">
+        <div class="gallery-track">
+          <div class="gallery-slide" data-cap="Startbildschirm. Frag einfach los."><img src="Screenshot_20261027_005911_Gallery.webp" alt="Chat-Startbildschirm" width="1024" height="613"></div>
+          <div class="gallery-slide" data-cap="Antworten als gut lesbarer Text, mit Listen und Rechenweg."><img src="Screenshot_20261027_004942_Gallery.webp" alt="Chat mit Antwort" width="1024" height="613" loading="lazy"></div>
+          <div class="gallery-slide" data-cap="Beschreib ein Bild, Vexyron malt es direkt im Chat."><img src="Screenshot_20261027_004553_Gallery.webp" alt="Bildgenerierung" width="1024" height="613" loading="lazy"></div>
+          <div class="gallery-slide" data-cap="Alle deine Bilder an einem Ort, privat in deinem Konto."><img src="Screenshot_20261027_004717_Gallery.webp" alt="Bildergalerie" width="1024" height="613" loading="lazy"></div>
+          <div class="gallery-slide" data-cap="Live sprechen: Tippe aufs Mikro und rede los."><img src="Screenshot_20261027_005059_Gallery.webp" alt="Sprachmodus" width="1024" height="613" loading="lazy"></div>
+        </div>
+      </div>
+      <div class="gallery-controls">
+        <button class="gallery-btn prev" aria-label="Vorheriges Bild">&#8249;</button>
+        <div class="gallery-dots"></div>
+        <button class="gallery-btn next" aria-label="Nächstes Bild">&#8250;</button>
+      </div>
+      <p class="gallery-cap" id="gallery-cap"></p>
     </div>
   </section>
 
-  <section id="daten" class="block">
-    <h2>Deine Daten</h2>
+  <section id="kann" class="block reveal">
+    <h2>Das kann Vexyron</h2>
     <div class="cards">
-      <div class="card"><b>Eigenes Konto</b><span>Jeder Nutzer hat ein eigenes Konto. Niemand sieht die Chats oder Einstellungen eines anderen.</span></div>
-      <div class="card"><b>Auf allen Geräten, nur für dich lesbar</b><span>Deine Chats, Einstellungen und Bilder werden verschlüsselt auf dem Server gespeichert. So bist du auf jedem Gerät nach der Anmeldung gleich wieder drin. Verschlüsselt wird auf deinem Gerät, dein Passwort ist der Schlüssel: Der Betreiber kann sie weder sehen noch lesen.</span></div>
-      <div class="card"><b>Deine Bilder sind privat</b><span>Bilder, die Vexyron für dich malt, werden nur verschlüsselt in deinem Konto gespeichert. Nur wenn du ein Bild selbst in der Community teilst, kann der Betreiber es sehen und freigeben.</span></div>
-      <div class="card"><b>Wichtig: Passwort</b><span>Weil nur dein Passwort die Daten öffnet, lassen sich deine gesicherten Chats nicht wiederherstellen, wenn du es vergisst. Beim Schreiben läuft dein Text kurz im Klartext durch den Server zur KI und wird dabei nicht gespeichert.</span></div>
-      <div class="card"><b>Fairer Zugang</b><span>Der Server läuft auf einem privaten Rechner. Es gibt eine Warteschlange und ein Tageslimit, damit alle drankommen. Manchmal ist er nicht erreichbar.</span></div>
+      <div class="card"><b>Chatten</b><span>Fragen, Texte, Ideen, Mathe mit Rechenweg. Die Antworten kommen als gut lesbarer Text.</span></div>
+      <div class="card"><b>Live sprechen</b><span>Tippe aufs Mikro und rede los. Du kannst Vexyron jederzeit unterbrechen.</span></div>
+      <div class="card"><b>Bilder malen und ansehen</b><span>Beschreib ein Bild, Vexyron malt es. Eigene Bilder kannst du ändern, auch nur eine markierte Stelle. Schick ein Foto, und Vexyron sagt dir, was drauf ist.</span></div>
+      <div class="card"><b>Im Web nachschlagen</b><span>Bei aktuellen Fragen sucht Vexyron selbst nach und fasst es für dich zusammen.</span></div>
+      <div class="card"><b>Merkt sich Dinge</b><span>Sag „Merk dir …“, und es bleibt in deinem Konto gespeichert.</span></div>
+      <div class="card"><b>Community</b><span>Teile ein Bild, schau dir die der anderen an, like und kommentiere. Mit eigenem Profil.</span></div>
     </div>
   </section>
 </main>
@@ -64,17 +363,100 @@
   <span><a href="datenschutz.html">Datenschutz</a></span>
 </footer>
 
-<div class="dl" id="dl" hidden>
-  <div class="dl-card">
-    <img src="icon.png" alt="">
-    <h2 id="dl-t">Vexyron wird geladen</h2>
-    <div class="dl-bar"><i id="dl-f"></i></div>
-    <p class="dl-n" id="dl-n">Starte …</p>
-    <p class="dl-h" id="dl-h"></p>
-    <button class="btn small" id="dl-x" type="button">Abbrechen</button>
-  </div>
-</div>
+<script src="bg.js"></script>
+<script src="site.js?v=6"></script>
+<script>
+(() => {
+  const outer  = document.getElementById('gallery-outer');
+  const wrap   = document.getElementById('gallery');
+  const track  = wrap.querySelector('.gallery-track');
+  const dotsEl = outer.querySelector('.gallery-dots');
+  const slides = wrap.querySelectorAll('.gallery-slide');
+  const n = slides.length;
+  let cur = 0, timer, startX = 0;
 
-<script src="site.js"></script>
+  slides.forEach((slide, i) => {
+    const img = slide.querySelector('img');
+    const bg = document.createElement('div');
+    bg.className = 'gallery-slide-bg';
+    bg.style.backgroundImage = `url(${img.src})`;
+    slide.insertBefore(bg, img);
+    const d = document.createElement('button');
+    d.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Bild ' + (i + 1));
+    d.addEventListener('click', () => { stop(); go(i); start(); });
+    dotsEl.appendChild(d);
+  });
+
+  function go(i) {
+    cur = ((i % n) + n) % n;
+    track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+    outer.querySelectorAll('.gallery-dot').forEach((d, j) => d.classList.toggle('active', j === cur));
+    const capEl = document.getElementById('gallery-cap'); if (capEl) capEl.textContent = slides[cur].dataset.cap || '';
+  }
+  function start() { timer = setInterval(() => go(cur + 1), 8000); }
+  function stop()  { clearInterval(timer); }
+
+  outer.querySelector('.gallery-btn.prev').addEventListener('click', () => { stop(); go(cur - 1); start(); });
+  outer.querySelector('.gallery-btn.next').addEventListener('click', () => { stop(); go(cur + 1); start(); });
+  wrap.addEventListener('mouseenter', stop);
+  wrap.addEventListener('mouseleave', start);
+  wrap.addEventListener('touchstart', e => { startX = e.touches[0].clientX; stop(); }, { passive: true });
+  wrap.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 45) go(dx < 0 ? cur + 1 : cur - 1);
+    start();
+  });
+  go(0);
+  start();
+})();
+</script>
+<script>
+(() => {
+  const els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('in')); return; }
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.12 });
+  els.forEach(e => io.observe(e));
+})();
+</script>
+<script>
+(() => {
+  const d = document.getElementById('so-drop');
+  if (!d) return;
+  const sum = d.querySelector('summary'), body = d.querySelector('.drop-body');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const T = reduce ? 0 : 420, EASE = 'cubic-bezier(.4,0,.2,1)';
+  let anim = null;
+  if (d.open) d.classList.add('is-open');
+
+  const run = (from, to, done) => {
+    if (anim) anim.cancel();
+    body.style.overflow = 'hidden';
+    anim = body.animate([from, to], { duration: T, easing: EASE });
+    anim.onfinish = () => { anim = null; body.style.overflow = ''; done(); };
+    anim.oncancel = () => { body.style.overflow = ''; };
+  };
+  const full = { height: null, paddingTop: '4px', paddingBottom: '24px', opacity: 1 };
+  const none = { height: '0px', paddingTop: '0px', paddingBottom: '0px', opacity: 0 };
+
+  function openDrop() {
+    d.classList.add('is-open');
+    const start = anim ? body.offsetHeight + 'px' : '0px';
+    d.open = true;
+    const h = body.scrollHeight + 'px';
+    run({ ...none, height: start }, { ...full, height: h }, () => {});
+  }
+  function closeDrop() {
+    d.classList.remove('is-open');
+    const h = body.offsetHeight + 'px';
+    run({ ...full, height: h }, none, () => { d.open = false; });
+  }
+  sum.addEventListener('click', e => { e.preventDefault(); d.classList.contains('is-open') ? closeDrop() : openDrop(); });
+
+  const openIf = () => { if (location.hash === '#so' && !d.classList.contains('is-open')) openDrop(); };
+  addEventListener('hashchange', openIf); openIf();
+  document.querySelectorAll('a[href="#so"]').forEach(x => x.addEventListener('click', () => { if (!d.classList.contains('is-open')) openDrop(); }));
+})();
+</script>
 </body>
 </html>

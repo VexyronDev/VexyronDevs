@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Status | Vexyron</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><a class="brand" href="./"><img src="icon.png" alt=""></a><nav><a href="./" aria-label="Zurück"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg><span class="lbl">Zurück</span></a></nav></header>
+
+<main class="status-page">
+  <h1 class="status-title">Status</h1>
+  <p class="status-sub">Echtzeit-Status der Vexyron-Dienste.</p>
+
+  <section class="components">
+    <h2 class="comp-h">Komponenten</h2>
+    <div class="comp" id="comp-server" data-state="check">
+      <span class="comp-name">Server</span>
+      <span class="comp-status"><i></i><span>Wird geprüft …</span></span>
+    </div>
+    <div class="comp" id="comp-engine" data-state="check">
+      <span class="comp-name">KI-Engine</span>
+      <span class="comp-status"><i></i><span>Wird geprüft …</span></span>
+    </div>
+  </section>
+
+  <section class="status-detail">
+    <h2 class="comp-h">Details</h2>
+
+    <div class="detail-row"><span>Auslastung</span><span id="load">Wird geprüft …</span></div>
+    <div class="detail-row"><span>Zuletzt geprüft</span><span id="checked">Wird geprüft …</span></div>
+  </section>
+
+  <p class="status-note">Automatische Aktualisierung alle 30 Sekunden. Daten stammen vom Server; bei Ausfall kann die Anzeige verzögert sein.</p>
+</main>
+
+<footer><span>© VexyronDevs</span><span><a href="datenschutz.html">Datenschutz</a></span></footer>
+
+<script src="bg.js"></script>
+<script src="site.js?v=4"></script>
+</body>
+</html>

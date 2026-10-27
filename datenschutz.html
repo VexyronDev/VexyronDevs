@@ -3,41 +3,58 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Datenschutz – Vexyron</title>
+<title>Datenschutz | Vexyron</title>
 <meta name="robots" content="noindex">
 <link rel="icon" href="favicon.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="top"><a class="brand" href="./"><img src="icon.png" alt=""><span>Vexyron</span></a><nav><a href="./">Zurück</a></nav></header>
-<main class="page">
-  <h1>Datenschutz</h1>
+<header class="top"><a class="brand" href="./"><img src="icon.png" alt=""></a><nav><a href="./" aria-label="Zurück"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg><span class="lbl">Zurück</span></a></nav></header>
 
-  <h2>Wer ist verantwortlich?</h2>
-  <p>VexyronDevs (privates Testprojekt), E-Mail: <a href="mailto:vexyrondevs@gmail.com">vexyrondevs@gmail.com</a></p>
+<main class="status-page">
+  <h1 class="status-title">Datenschutz</h1>
+  <p class="status-sub">Informationen zur Verarbeitung deiner Daten.</p>
 
-  <h2>Was wird gespeichert?</h2>
-  <ul>
-    <li><b>Konto:</b> dein Name und ein Passwort-Hash (das Passwort selbst wird nicht gespeichert), das Datum der Anmeldung und ein Zähler, wie viele Nachrichten du heute geschrieben hast.</li>
-    <li><b>Chats, Einstellungen, Gedächtnis und erstellte Bilder:</b> Sie liegen auf deinem Gerät und zusätzlich verschlüsselt auf dem Server, damit du sie auf allen Geräten hast. Die Verschlüsselung passiert auf deinem Gerät, dein Passwort ist der Schlüssel. Der Server und der Betreiber sehen nur unlesbare Daten und können sie nicht öffnen. Wenn du dein Passwort vergisst, lassen sich die Daten nicht wiederherstellen. Löschst du dein Konto, werden sie auf dem Server gelöscht.</li>
-    <li><b>Community-Galerie:</b> Nur wenn du ein Bild selbst mit „In Community teilen“ veröffentlichst, wird es mit deinem Namen auf dem Server gespeichert. Der Betreiber gibt es erst frei; danach können es andere Nutzer sehen und speichern. Du kannst es jederzeit wieder entfernen, es wird auch beim Löschen deines Kontos entfernt.</li>
-    <li><b>Nachrichten:</b> Wenn du etwas schreibst, läuft der Text zur Verarbeitung durch den Server zur KI und zurück. Er wird dabei nicht gespeichert und nicht protokolliert.</li>
-    <li><b>Internetsuche:</b> Wenn Vexyron etwas nachschlägt, wird nur der Suchtext an Suchmaschinen (DuckDuckGo, Bing) geschickt, nicht dein Chat und nicht dein Name.</li>
-    <li><b>IP-Adresse:</b> Sie wird kurz im Arbeitsspeicher gehalten, um zu viele Anmeldeversuche zu bremsen, und nicht dauerhaft gespeichert.</li>
-  </ul>
+  <section class="dp-block">
+    <h2 class="comp-h">Wer ist verantwortlich?</h2>
+    <p>VexyronDevs (privates Testprojekt), E-Mail: <a href="mailto:vexyrondevs@gmail.com">vexyrondevs@gmail.com</a></p>
+  </section>
 
-  <h2>Wer bekommt Daten?</h2>
-  <ul>
-    <li><b>Cloudflare</b> leitet die Verbindung zwischen deinem Gerät und dem Server weiter (Tunnel). Dabei verarbeitet Cloudflare technisch bedingt Verbindungsdaten.</li>
-    <li><b>GitHub Pages</b> liefert diese Webseite aus. GitHub kann dabei die IP-Adresse der Besucher verarbeiten.</li>
-  </ul>
+  <section class="dp-block">
+    <h2 class="comp-h">Was wird gespeichert?</h2>
+    <ul class="dp-list">
+      <li><b>Konto:</b> dein Name und ein Passwort-Hash (das Passwort selbst wird nicht gespeichert), das Datum der Anmeldung und ein Zähler, wie viele Nachrichten du heute geschrieben hast.</li>
+      <li><b>Chats, Einstellungen, Gedächtnis und erstellte Bilder:</b> Sie liegen auf deinem Gerät und zusätzlich verschlüsselt auf dem Server, damit du sie auf allen Geräten hast. Die Verschlüsselung passiert auf deinem Gerät, dein Passwort ist der Schlüssel. Der Server und der Betreiber sehen nur unlesbare Daten und können sie nicht öffnen. Wenn du dein Passwort vergisst, lassen sich die Daten nicht wiederherstellen. Löschst du dein Konto, werden sie auf dem Server gelöscht.</li>
+      <li><b>Community-Galerie:</b> Nur wenn du ein Bild selbst mit „In Community teilen“ veröffentlichst, wird es mit deinem Namen auf dem Server gespeichert. Der Betreiber gibt es erst frei; danach können es andere Nutzer sehen und speichern. Du kannst es jederzeit wieder entfernen, es wird auch beim Löschen deines Kontos entfernt.</li>
+      <li><b>Nachrichten:</b> Wenn du etwas schreibst, läuft der Text zur Verarbeitung durch den Server zur KI und zurück. Er wird dabei nicht gespeichert und nicht protokolliert.</li>
+      <li><b>Internetsuche:</b> Wenn Vexyron etwas nachschlägt, wird nur der Suchtext an Suchmaschinen (DuckDuckGo, Bing) geschickt, nicht dein Chat und nicht dein Name.</li>
+      <li><b>IP-Adresse:</b> Sie wird kurz im Arbeitsspeicher gehalten, um zu viele Anmeldeversuche zu bremsen, und nicht dauerhaft gespeichert.</li>
+    </ul>
+  </section>
 
-  <h2>Deine Rechte</h2>
-  <p>Du kannst jederzeit Auskunft verlangen und dein Konto löschen. Das geht in der App unter Einstellungen › Konto › „Konto löschen“. Dann sind Name und Passwort-Hash vom Server entfernt, und die Daten auf deinem Gerät werden gelöscht.</p>
+  <section class="dp-block">
+    <h2 class="comp-h">Wer bekommt Daten?</h2>
+    <ul class="dp-list">
+      <li><b>Cloudflare</b> leitet die Verbindung zwischen deinem Gerät und dem Server weiter (Tunnel). Dabei verarbeitet Cloudflare technisch bedingt Verbindungsdaten.</li>
+      <li><b>GitHub Pages</b> liefert diese Webseite aus. GitHub kann dabei die IP-Adresse der Besucher verarbeiten.</li>
+    </ul>
+  </section>
 
-  <h2>Hinweis zum Betrieb</h2>
-  <p>Der Server läuft auf einem privaten Rechner und ist nicht immer erreichbar. Gib keine Passwörter oder sehr persönliche Dinge in den Chat ein.</p>
+  <section class="dp-block">
+    <h2 class="comp-h">Deine Rechte</h2>
+    <p>Du kannst jederzeit Auskunft verlangen und dein Konto löschen. Das geht in der App unter Einstellungen, dort Konto und „Konto löschen“. Dann sind Name und Passwort-Hash vom Server entfernt, und die Daten auf deinem Gerät werden gelöscht.</p>
+  </section>
+
+  <section class="dp-block">
+    <h2 class="comp-h">Hinweis zum Betrieb</h2>
+    <p>Der Server läuft auf einem privaten Rechner und ist nicht immer erreichbar. Gib keine Passwörter oder sehr persönliche Dinge in den Chat ein.</p>
+  </section>
+
+  <p class="status-note">Stand: 26.10.2026</p>
 </main>
+
 <footer><span>© VexyronDevs</span><span><a href="datenschutz.html">Datenschutz</a></span></footer>
+
+<script src="bg.js"></script>
 </body>
 </html>
