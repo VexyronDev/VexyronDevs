@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vexyron</title>
-<meta name="description" content="Vexyron, die KI von VexyronDevs. Schreib mit ihr oder sprich live mit ihr. Jeder hat sein eigenes Konto.">
+<meta name="description" content="Vexyron, die KI von VexyronDevs. Gerade als Testversion zum Schreiben. Jeder hat sein eigenes Konto.">
 <meta name="theme-color" content="#080808">
 <link rel="icon" href="favicon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Vexyron">
-<meta property="og:description" content="Die KI von VexyronDevs. Schreib mit ihr, sprich live mit ihr, lass sie Bilder malen.">
+<meta property="og:description" content="Die KI von VexyronDevs. Gerade als Testversion zum Schreiben.">
 <meta property="og:image" content="https://vexyrondev.github.io/VexyronDevs/Screenshot_20261027_005911_Gallery.webp">
 <style>
 :root {
@@ -298,12 +298,12 @@ body::after{content:"";position:fixed;top:0;left:0;right:0;height:40px;z-index:3
 <main>
   <section class="hero">
     <h1>Vexyron</h1>
-    <p class="lead">Die KI von VexyronDevs. Schreib mit ihr oder sprich live mit ihr. <br>Jeder hat sein eigenes Konto.</p>
-    <div class="chips"><span>Chat</span><span>Live sprechen</span><span>Bilder malen</span><span>Web-Suche</span><span>Community</span></div>
+    <p class="lead">Die KI von VexyronDevs. Gerade als Testversion, zum Schreiben. <br>Jeder hat sein eigenes Konto.</p>
+    <div class="chips"><span>Testversion</span><span>Chat</span><span>Web-Suche</span><span>Bilder ansehen</span></div>
     <div class="cta" id="download">
       <a class="btn primary" id="open" href="#" aria-disabled="true">Vexyron öffnen</a>
       <a class="btn" id="win" href="#" aria-disabled="true">Windows-App laden</a>
-      <a class="btn" id="apk" href="#" aria-disabled="true">Android-App laden</a>
+      <a class="btn" id="apk" href="#" aria-disabled="true" style="display:none">Android-App laden</a>
     </div>
     <p class="winhint">Windows warnt beim ersten Start. Klicke auf „Weitere Informationen“ und dann auf „Trotzdem ausführen“.</p>
   </section>
@@ -318,7 +318,7 @@ body::after{content:"";position:fixed;top:0;left:0;right:0;height:40px;z-index:3
         <li><b>Loslegen</b><span>Schreib los. Beim nächsten Mal meldest du dich nur noch an.</span></li>
       </ol>
       <div class="note">
-        <b>Handy und PC:</b> Lade die Android-App oben und öffne sie. Am PC: Lade die Windows-App, öffne die Datei und folge dem Installationsfenster.
+        <b>Am PC:</b> Lade die Windows-App, öffne die Datei und folge dem Installationsfenster. Das ist eine Testversion: Gerade geht nur Schreiben. Voice, Bilder malen und die Handy-App kommen später.
       </div>
       </div>
     </details>
@@ -331,9 +331,6 @@ body::after{content:"";position:fixed;top:0;left:0;right:0;height:40px;z-index:3
         <div class="gallery-track">
           <div class="gallery-slide" data-cap="Startbildschirm. Frag einfach los."><img src="Screenshot_20261027_005911_Gallery.webp" alt="Chat-Startbildschirm" width="1024" height="613"></div>
           <div class="gallery-slide" data-cap="Antworten als gut lesbarer Text, mit Listen und Rechenweg."><img src="Screenshot_20261027_004942_Gallery.webp" alt="Chat mit Antwort" width="1024" height="613" loading="lazy"></div>
-          <div class="gallery-slide" data-cap="Beschreib ein Bild, Vexyron malt es direkt im Chat."><img src="Screenshot_20261027_004553_Gallery.webp" alt="Bildgenerierung" width="1024" height="613" loading="lazy"></div>
-          <div class="gallery-slide" data-cap="Alle deine Bilder an einem Ort, privat in deinem Konto."><img src="Screenshot_20261027_004717_Gallery.webp" alt="Bildergalerie" width="1024" height="613" loading="lazy"></div>
-          <div class="gallery-slide" data-cap="Live sprechen: Tippe aufs Mikro und rede los."><img src="Screenshot_20261027_005059_Gallery.webp" alt="Sprachmodus" width="1024" height="613" loading="lazy"></div>
         </div>
       </div>
       <div class="gallery-controls">
@@ -349,13 +346,10 @@ body::after{content:"";position:fixed;top:0;left:0;right:0;height:40px;z-index:3
     <h2>Das kann Vexyron</h2>
     <div class="cards">
       <div class="card"><b>Chatten</b><span>Fragen, Texte, Ideen, Mathe mit Rechenweg. Die Antworten kommen als gut lesbarer Text.</span></div>
-      <div class="card"><b>Live sprechen</b><span>Tippe aufs Mikro und rede los. Du kannst Vexyron jederzeit unterbrechen und die Stimme wechseln: Elian, Jena, Lukas oder Jarvis.</span></div>
-      <div class="card"><b>Karten in der Pille</b><span>Beim Live-Gespräch zeigt eine kleine Pille Ergebnisse an: Wetter mit Stundenverlauf, Uhrzeit, Orte mit Karte, Suchergebnisse sowie Listen und Rezepte zum Kopieren.</span></div>
-      <div class="card"><b>Bildschirm teilen</b><span>In der Desktop-App kann Vexyron im Live-Gespräch deinen Bildschirm ansehen, dir bei dem helfen, was du gerade machst, und Fehler selbst nachschlagen. Er sieht nur zu, solange du es einschaltest.</span></div>
-      <div class="card"><b>Bilder malen und ansehen</b><span>Beschreib ein Bild, Vexyron malt es. Eigene Bilder kannst du ändern, auch nur eine markierte Stelle. Schick ein Foto, und Vexyron sagt dir, was drauf ist.</span></div>
-      <div class="card"><b>Im Web nachschlagen</b><span>Bei aktuellen Fragen und Wissensfragen sucht Vexyron selbst nach und fasst es für dich zusammen.</span></div>
-      <div class="card"><b>Merkt sich Dinge</b><span>Sag „Merk dir …“, und es bleibt in deinem Konto gespeichert.</span></div>
-      <div class="card"><b>Community</b><span>Teile ein Bild, schau dir die der anderen an, like und kommentiere. Mit eigenem Profil.</span></div>
+      <div class="card"><b>Bilder ansehen</b><span>Schick ein Foto oder einen Screenshot, und Vexyron sagt dir, was drauf ist.</span></div>
+      <div class="card"><b>Im Web nachschlagen</b><span>Bei aktuellen Fragen sucht Vexyron nach und fasst es für dich zusammen. Nur, wenn es wirklich nötig ist.</span></div>
+      <div class="card"><b>Merkt sich Dinge</b><span>Sag „Merk dir …“, und Vexyron behält es. Das Gedächtnis kannst du in den Einstellungen ein- und ausschalten.</span></div>
+      <div class="card"><b>Bald wieder da</b><span>Voice (Sprechen mit Vexyron) und Bilder malen werden gerade bearbeitet. Sobald sie fertig sind, steht es hier und in den Updates in der App.</span></div>
     </div>
   </section>
 </main>
