@@ -79,7 +79,7 @@
         if (text) text.textContent = 'Der Server ist online';
         enable(open, url + '/');
         enable(apk, url + '/Vexyron.apk');
-        enable(win, url + '/Vexyron-Setup.zip');
+        enable(win, url + '/Vexyron-Setup.exe');
         if (hint) hint.textContent = '';
         setComp(compServer, 'on', 'Aktiv');
         setComp(compEngine, 'on', 'Aktiv');
@@ -116,7 +116,7 @@
       if (online) {
         enable(open, url + '/');
         enable(apk, url + '/Vexyron.apk');
-        enable(win, url + '/Vexyron-Setup.zip');
+        enable(win, url + '/Vexyron-Setup.exe');
         setComp(compServer, 'on', 'Aktiv');
         setComp(compEngine, 'on', 'Aktiv');
         setComp(compTunnel, 'on', 'Erreichbar');
